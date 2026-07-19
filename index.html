@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qokhu Mal Pty Ltd — Namakgale's Community Hub</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-
     /* ── HARD RESET & BASE ── */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background-color: #141210 !important;
@@ -20,22 +27,24 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* force every section to honour the dark bg */
-    section, footer, header, div {
+    section,
+    footer,
+    header,
+    div {
       background-color: transparent;
     }
 
     /* ── VARIABLES ── */
     :root {
-      --ochre:   #D4820A;
-      --gold:    #F0A500;
-      --sienna:  #B85C1A;
-      --green:   #1D4D2E;
-      --lgreen:  #2E7048;
-      --cream:   #F5EDD8;
-      --dark:    #141210;
-      --mid:     #1E1B14;
-      --card:    #221F17;
+      --ochre: #D4820A;
+      --gold: #F0A500;
+      --sienna: #B85C1A;
+      --green: #1D4D2E;
+      --lgreen: #2E7048;
+      --cream: #F5EDD8;
+      --dark: #141210;
+      --mid: #1E1B14;
+      --card: #221F17;
     }
 
     /* ══════════════════════════════════
@@ -50,15 +59,23 @@
       gap: 10px;
     }
     .topbar .dot {
-      width: 9px; height: 9px;
+      width: 9px;
+      height: 9px;
       background: #D4820A;
       border-radius: 50%;
       flex-shrink: 0;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%,100%{opacity:1;transform:scale(1)}
-      50%{opacity:.4;transform:scale(.7)}
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: .4;
+        transform: scale(.7);
+      }
     }
     .topbar span {
       font-size: 11px;
@@ -139,7 +156,10 @@
       text-align: center;
       max-width: 340px;
     }
-    .location-card .pin { font-size: 32px; margin-bottom: 10px; }
+    .location-card .pin {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
     .location-card h3 {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 20px;
@@ -200,7 +220,6 @@
       padding: 48px 24px 56px;
     }
 
-    /* alternate section bg */
     .chapter.alt .chapter-body {
       background-color: #1A1710;
     }
@@ -219,7 +238,8 @@
     .sec-label::after {
       content: '';
       display: inline-block;
-      width: 36px; height: 1px;
+      width: 36px;
+      height: 1px;
       background: #D4820A;
       opacity: .7;
     }
@@ -259,7 +279,10 @@
       background-color: #1E1B14;
       padding: 20px 16px;
     }
-    .cafe-item .ci { font-size: 24px; margin-bottom: 8px; }
+    .cafe-item .ci {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
     .cafe-item h4 {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 14px;
@@ -325,7 +348,10 @@
       background-color: #1E1B14;
       border-top: 1px solid #D4820A11;
     }
-    .menu-row .emoji { font-size: 20px; flex-shrink: 0; }
+    .menu-row .emoji {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
     .menu-row .mname {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 15px;
@@ -456,6 +482,53 @@
       color: #F5EDD8;
     }
 
+    /* ── CONTACT DETAILS (new) ── */
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 12px;
+      margin-bottom: 32px;
+      max-width: 320px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: #F5EDD8;
+      padding: 10px 12px;
+      background-color: #1D4D2E88;
+      border-radius: 4px;
+      border: 1px solid #F5EDD822;
+    }
+    .contact-detail .cd-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+    .contact-detail .cd-text {
+      font-weight: 500;
+      letter-spacing: .02em;
+      word-break: break-all;
+    }
+    .contact-detail .cd-text a {
+      color: #F0A500;
+      text-decoration: none;
+    }
+    .contact-detail .cd-text a:hover {
+      text-decoration: underline;
+    }
+    .contact-detail .cd-label {
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #A8C8A8;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
     /* ── FOOTER ── */
     footer {
       background-color: #0E0C09 !important;
@@ -482,8 +555,24 @@
       transform: translateY(24px);
       transition: opacity .65s ease, transform .65s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    /* ── small tweak ── */
+    @media (max-width: 420px) {
+      .chapter {
+        grid-template-columns: 1fr;
+      }
+      .spine {
+        display: none;
+      }
+      .contact-detail {
+        font-size: 13px;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -497,7 +586,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="badge">Est. — Community Hub</div>
-  <h1>Qokhu<br><em>Mal</em><br>Pty Ltd</h1>
+  <h1>Qokhu<br /><em>Mal</em><br />Pty Ltd</h1>
   <p class="tagline">Where the neighbourhood comes to work, eat, connect, and feel good.</p>
   <div class="pills">
     <div class="pill">Internet Café</div>
@@ -521,7 +610,7 @@
   </div>
   <div class="chapter-body">
     <div class="sec-label">Internet Café</div>
-    <h2>Print. Browse.<br><em>Connect.</em></h2>
+    <h2>Print. Browse.<br /><em>Connect.</em></h2>
     <p class="body-text">
       Your go-to spot in Namakgale for fast browsing, printing, scanning,
       and photocopying. Submit forms, apply online, or print school work —
@@ -570,7 +659,7 @@
   </div>
   <div class="chapter-body">
     <div class="sec-label">Hair Salon</div>
-    <h2>Style that<br>speaks <em>for you.</em></h2>
+    <h2>Style that<br />speaks <em>for you.</em></h2>
     <p class="body-text">
       Run by a dedicated stylist who has built her reputation one client at a time.
       Booked solid every single day — and for good reason. From braids and relaxers
@@ -598,7 +687,7 @@
   </div>
   <div class="chapter-body">
     <div class="sec-label">Eat &amp; Drink</div>
-    <h2>Quick bites,<br><em>good vibes.</em></h2>
+    <h2>Quick bites,<br /><em>good vibes.</em></h2>
     <p class="body-text">
       Stop by for a cold drink, a hot plate of chips, or a quick snack.
       Simple, satisfying, and always fresh — perfect before or after
@@ -644,7 +733,7 @@
   </div>
   <div class="chapter-body">
     <div class="sec-label">About The Business</div>
-    <h2>A family<br><em>built hub.</em></h2>
+    <h2>A family<br /><em>built hub.</em></h2>
     <p class="body-text">
       Qokhu Mal Pty Ltd is a proudly family-owned, multi-service community hub
       in the heart of Namakgale. What started as a vision to bring essential
@@ -681,19 +770,53 @@
   </div>
   <div class="chapter-body">
     <div class="sec-label">Get In Touch</div>
-    <h2>Come find<br><em>us.</em></h2>
+    <h2>Come find<br /><em>us.</em></h2>
     <p class="body-text">
       Ready to book a salon appointment, visit the café, or just stop
       by for a bite? Reach out via WhatsApp or call us directly.
     </p>
+
+    <!-- ── CONTACT DETAILS (NEW) ── -->
+    <div class="contact-details">
+      <div class="contact-detail">
+        <span class="cd-icon">📱</span>
+        <span class="cd-text">
+                        <span class="cd-label">WhatsApp</span>
+                        <a href="https://wa.me/27736252938" target="_blank">073 625 2938</a>
+                    </span>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">📞</span>
+        <span class="cd-text">
+                        <span class="cd-label">Call</span>
+                        <a href="tel:+27710047974">071 004 7974</a>
+                    </span>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">🏢</span>
+        <span class="cd-text">
+                        <span class="cd-label">Landline</span>
+                        015 769 1040
+                    </span>
+      </div>
+      <div class="contact-detail">
+        <span class="cd-icon">✉️</span>
+        <span class="cd-text">
+                        <span class="cd-label">Email</span>
+                        <a href="mailto:qokhumal.qk@gmail.com">qokhumal.qk@gmail.com</a>
+                    </span>
+      </div>
+    </div>
+
     <div class="cta-stack">
-      <a href="https://wa.me/27000000000" class="btn-whatsapp" target="_blank">
+      <a href="https://wa.me/27736252938" class="btn-whatsapp" target="_blank">
         💬 &nbsp;WhatsApp Us
       </a>
-      <a href="tel:+27000000000" class="btn-call">
+      <a href="tel:+27710047974" class="btn-call">
         📞 &nbsp;Call Us
       </a>
     </div>
+
     <div class="addr-grid">
       <div class="addr-item">
         <div class="alabel">Location</div>
@@ -714,9 +837,11 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Qokhu Mal Pty Ltd</div>
-  <p>Namakgale's Community Hub<br>
-    Internet Café &nbsp;·&nbsp; Hair Salon &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Business Services<br>
-    Namakgale · Ba-Phalaborwa · Limpopo · 1391</p>
+  <p>
+    Namakgale's Community Hub<br />
+    Internet Café &nbsp;·&nbsp; Hair Salon &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Business Services<br />
+    Namakgale · Ba-Phalaborwa · Limpopo · 1391
+  </p>
 </footer>
 
 <script>
