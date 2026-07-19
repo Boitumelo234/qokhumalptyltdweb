@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qokhu Mal Pty Ltd — Namakgale's Community Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── HARD RESET & BASE ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #141210 !important;
+      color: #F5EDD8 !important;
+      font-family: 'DM Sans', Arial, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* force every section to honour the dark bg */
+    section, footer, header, div {
+      background-color: transparent;
+    }
+
+    /* ── VARIABLES ── */
+    :root {
+      --ochre:   #D4820A;
+      --gold:    #F0A500;
+      --sienna:  #B85C1A;
+      --green:   #1D4D2E;
+      --lgreen:  #2E7048;
+      --cream:   #F5EDD8;
+      --dark:    #141210;
+      --mid:     #1E1B14;
+      --card:    #221F17;
+    }
+
+    /* ══════════════════════════════════
+       TOP BAR
+    ══════════════════════════════════ */
+    .topbar {
+      background-color: #1E1B14;
+      border-bottom: 1px solid #D4820A33;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topbar .dot {
+      width: 9px; height: 9px;
+      background: #D4820A;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.4;transform:scale(.7)}
+    }
+    .topbar span {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #D4820A;
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .hero {
+      background-color: #141210;
+      padding: 48px 24px 40px;
+      border-bottom: 1px solid #D4820A22;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #1D4D2E;
+      color: #F0A500;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-bottom: 28px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(54px, 14vw, 88px);
+      font-weight: 900;
+      line-height: .95;
+      color: #F5EDD8;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #D4820A;
+    }
+
+    .hero .tagline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #C8BAA0;
+      line-height: 1.55;
+      margin-bottom: 32px;
+      max-width: 360px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .pill {
+      border: 1.5px solid #D4820A88;
+      color: #D4820A;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      background: transparent;
+    }
+
+    .location-card {
+      background-color: #1D4D2E22;
+      border: 1.5px solid #2E704880;
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: center;
+      max-width: 340px;
+    }
+    .location-card .pin { font-size: 32px; margin-bottom: 10px; }
+    .location-card h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F5EDD8;
+      margin-bottom: 8px;
+    }
+    .location-card p {
+      font-size: 14px;
+      color: #C8BAA0;
+      line-height: 1.6;
+    }
+    .location-card .coords {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 10px;
+      letter-spacing: .18em;
+      color: #D4820A;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════
+       CHAPTERS
+    ══════════════════════════════════ */
+    .chapter {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      border-top: 1px solid #D4820A22;
+    }
+
+    .spine {
+      background-color: #1E1B14;
+      border-right: 1px solid #D4820A22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 0;
+      gap: 12px;
+    }
+    .spine-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #D4820A;
+      writing-mode: vertical-rl;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+    .spine-line {
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, #D4820A66, transparent);
+    }
+
+    .chapter-body {
+      background-color: #141210;
+      padding: 48px 24px 56px;
+    }
+
+    /* alternate section bg */
+    .chapter.alt .chapter-body {
+      background-color: #1A1710;
+    }
+
+    .sec-label {
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #D4820A;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sec-label::after {
+      content: '';
+      display: inline-block;
+      width: 36px; height: 1px;
+      background: #D4820A;
+      opacity: .7;
+    }
+
+    .chapter-body h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(32px, 9vw, 56px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #F5EDD8;
+      margin-bottom: 18px;
+    }
+    .chapter-body h2 em {
+      font-style: italic;
+      color: #D4820A;
+    }
+
+    .body-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #C8BAA0;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    /* ── CAFÉ GRID ── */
+    .cafe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background-color: #D4820A22;
+      border: 1px solid #D4820A33;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .cafe-item {
+      background-color: #1E1B14;
+      padding: 20px 16px;
+    }
+    .cafe-item .ci { font-size: 24px; margin-bottom: 8px; }
+    .cafe-item h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #F5EDD8;
+      margin-bottom: 4px;
+    }
+    .cafe-item p {
+      font-size: 12px;
+      color: #A89880;
+      line-height: 1.5;
+    }
+
+    /* ── SALON ── */
+    .booked-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #B85C1A;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .salon-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .salon-tag {
+      background-color: #1D4D2E;
+      border: 1px solid #2E7048;
+      color: #C8BAA0;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 4px;
+    }
+
+    /* ── MENU ── */
+    .menu-list {
+      border: 1px solid #D4820A33;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .divider-row {
+      background-color: #D4820A18;
+      padding: 7px 20px;
+      font-size: 9px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #D4820A;
+      font-weight: 700;
+    }
+    .menu-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background-color: #1E1B14;
+      border-top: 1px solid #D4820A11;
+    }
+    .menu-row .emoji { font-size: 20px; flex-shrink: 0; }
+    .menu-row .mname {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #F5EDD8;
+      flex: 1;
+    }
+    .menu-row .mnote {
+      font-size: 12px;
+      color: #A89880;
+    }
+
+    /* ── ABOUT ── */
+    .about-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .about-block {
+      background-color: #1E1B14;
+      border: 1px solid #D4820A22;
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .about-block h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #F5EDD8;
+      margin-bottom: 8px;
+    }
+    .about-block p {
+      font-size: 14px;
+      color: #C8BAA0;
+      line-height: 1.7;
+    }
+    .cipc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #1D4D2E;
+      border: 1px solid #2E7048;
+      color: #C8BAA0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 9px 16px;
+      border-radius: 4px;
+      margin-top: 14px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background-color: #1D4D2E !important;
+    }
+    .contact-section .chapter-body {
+      background-color: #1D4D2E;
+    }
+    .contact-section .spine {
+      background-color: #1A4428;
+      border-right-color: #2E704844;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #D4820A;
+      color: #141210;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-bottom: 12px;
+      width: 100%;
+      justify-content: center;
+      max-width: 320px;
+    }
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: transparent;
+      color: #F5EDD8;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 1.5px solid #F5EDD899;
+      width: 100%;
+      justify-content: center;
+      max-width: 320px;
+    }
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+      max-width: 320px;
+    }
+
+    .addr-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 32px;
+      border-top: 1px solid #F5EDD822;
+    }
+    .addr-item .alabel {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #A8C8A8;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .addr-item .avalue {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #F5EDD8;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: #0E0C09 !important;
+      border-top: 1px solid #D4820A22;
+      padding: 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: #D4820A;
+      margin-bottom: 8px;
+    }
+    footer p {
+      font-size: 12px;
+      color: #6B6050;
+      line-height: 1.7;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="dot"></div>
+  <span>Namakgale · Phalaborwa · Limpopo</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Est. — Community Hub</div>
+  <h1>Qokhu<br><em>Mal</em><br>Pty Ltd</h1>
+  <p class="tagline">Where the neighbourhood comes to work, eat, connect, and feel good.</p>
+  <div class="pills">
+    <div class="pill">Internet Café</div>
+    <div class="pill">Hair Salon</div>
+    <div class="pill">Restaurant</div>
+    <div class="pill">Business Services</div>
+  </div>
+  <div class="location-card">
+    <div class="pin">📍</div>
+    <h3>Namakgale</h3>
+    <p>Proudly serving the Namakgale community, Ba-Phalaborwa Municipality, Limpopo.</p>
+    <span class="coords">Zone B · Namakgale · 1391</span>
+  </div>
+</section>
+
+<!-- CH 01 — INTERNET CAFÉ -->
+<div class="chapter reveal">
+  <div class="spine">
+    <div class="spine-num">01</div>
+    <div class="spine-line"></div>
+  </div>
+  <div class="chapter-body">
+    <div class="sec-label">Internet Café</div>
+    <h2>Print. Browse.<br><em>Connect.</em></h2>
+    <p class="body-text">
+      Your go-to spot in Namakgale for fast browsing, printing, scanning,
+      and photocopying. Submit forms, apply online, or print school work —
+      we have the equipment and the connection you need.
+    </p>
+    <div class="cafe-grid">
+      <div class="cafe-item">
+        <div class="ci">🖨️</div>
+        <h4>Printing</h4>
+        <p>Black &amp; white and colour prints</p>
+      </div>
+      <div class="cafe-item">
+        <div class="ci">📄</div>
+        <h4>Photocopies</h4>
+        <p>Fast, affordable copying</p>
+      </div>
+      <div class="cafe-item">
+        <div class="ci">🌐</div>
+        <h4>Internet</h4>
+        <p>Browse, apply &amp; communicate</p>
+      </div>
+      <div class="cafe-item">
+        <div class="ci">📠</div>
+        <h4>Scanning</h4>
+        <p>Documents &amp; IDs</p>
+      </div>
+      <div class="cafe-item">
+        <div class="ci">📋</div>
+        <h4>Forms</h4>
+        <p>SASSA, UIF, gov forms</p>
+      </div>
+      <div class="cafe-item">
+        <div class="ci">💾</div>
+        <h4>Files</h4>
+        <p>USB print &amp; save services</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 02 — SALON -->
+<div class="chapter alt reveal">
+  <div class="spine">
+    <div class="spine-num">02</div>
+    <div class="spine-line"></div>
+  </div>
+  <div class="chapter-body">
+    <div class="sec-label">Hair Salon</div>
+    <h2>Style that<br>speaks <em>for you.</em></h2>
+    <p class="body-text">
+      Run by a dedicated stylist who has built her reputation one client at a time.
+      Booked solid every single day — and for good reason. From braids and relaxers
+      to natural styles and treatments, done with skill and care.
+    </p>
+    <div class="booked-badge">🔴 &nbsp;Bookings Filling Fast</div>
+    <div class="salon-tags">
+      <span class="salon-tag">Braiding</span>
+      <span class="salon-tag">Relaxers</span>
+      <span class="salon-tag">Natural Styles</span>
+      <span class="salon-tag">Weaves</span>
+      <span class="salon-tag">Hair Treatments</span>
+      <span class="salon-tag">Blowouts</span>
+      <span class="salon-tag">Kids' Hair</span>
+      <span class="salon-tag">Loc Styling</span>
+    </div>
+  </div>
+</div>
+
+<!-- CH 03 — FOOD -->
+<div class="chapter reveal">
+  <div class="spine">
+    <div class="spine-num">03</div>
+    <div class="spine-line"></div>
+  </div>
+  <div class="chapter-body">
+    <div class="sec-label">Eat &amp; Drink</div>
+    <h2>Quick bites,<br><em>good vibes.</em></h2>
+    <p class="body-text">
+      Stop by for a cold drink, a hot plate of chips, or a quick snack.
+      Simple, satisfying, and always fresh — perfect before or after
+      your café session or salon appointment.
+    </p>
+    <div class="menu-list">
+      <div class="divider-row">Eats</div>
+      <div class="menu-row">
+        <span class="emoji">🍟</span>
+        <span class="mname">Chips</span>
+        <span class="mnote">Hot &amp; crispy</span>
+      </div>
+      <div class="menu-row">
+        <span class="emoji">🍗</span>
+        <span class="mname">Fries &amp; Chicken</span>
+        <span class="mnote">Quick &amp; filling</span>
+      </div>
+      <div class="menu-row">
+        <span class="emoji">🥪</span>
+        <span class="mname">Snacks</span>
+        <span class="mnote">Chips, biscuits &amp; more</span>
+      </div>
+      <div class="divider-row">Drinks</div>
+      <div class="menu-row">
+        <span class="emoji">🥤</span>
+        <span class="mname">Cold Drinks</span>
+        <span class="mnote">Cans &amp; bottles</span>
+      </div>
+      <div class="menu-row">
+        <span class="emoji">🧃</span>
+        <span class="mname">Juices</span>
+        <span class="mnote">Various flavours</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 04 — ABOUT -->
+<div class="chapter alt reveal">
+  <div class="spine">
+    <div class="spine-num">04</div>
+    <div class="spine-line"></div>
+  </div>
+  <div class="chapter-body">
+    <div class="sec-label">About The Business</div>
+    <h2>A family<br><em>built hub.</em></h2>
+    <p class="body-text">
+      Qokhu Mal Pty Ltd is a proudly family-owned, multi-service community hub
+      in the heart of Namakgale. What started as a vision to bring essential
+      services to the neighbourhood has grown into a place the community
+      relies on every single day.
+    </p>
+    <div class="about-blocks">
+      <div class="about-block">
+        <h4>🏠 Family Owned</h4>
+        <p>A husband and wife team running multiple services under one roof — with passion, dedication, and deep community roots.</p>
+      </div>
+      <div class="about-block">
+        <h4>📋 Business Services</h4>
+        <p>The owners also assist with business registration and CIPC-related matters — helping local entrepreneurs get started legally and professionally.</p>
+        <div class="cipc-badge">✅ &nbsp;CIPC Assistance Available</div>
+      </div>
+      <div class="about-block">
+        <h4>📍 Proudly Local</h4>
+        <p>Based in Namakgale, Ba-Phalaborwa. Everything we do is for this community — local people, local service, local pride.</p>
+      </div>
+      <div class="about-block">
+        <h4>🌱 Growing Together</h4>
+        <p>Multiple businesses, one property — creating jobs and convenience for Namakgale residents under one trusted name: Qokhu Mal.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 05 — CONTACT -->
+<div class="chapter contact-section reveal">
+  <div class="spine">
+    <div class="spine-num">05</div>
+    <div class="spine-line"></div>
+  </div>
+  <div class="chapter-body">
+    <div class="sec-label">Get In Touch</div>
+    <h2>Come find<br><em>us.</em></h2>
+    <p class="body-text">
+      Ready to book a salon appointment, visit the café, or just stop
+      by for a bite? Reach out via WhatsApp or call us directly.
+    </p>
+    <div class="cta-stack">
+      <a href="https://wa.me/27000000000" class="btn-whatsapp" target="_blank">
+        💬 &nbsp;WhatsApp Us
+      </a>
+      <a href="tel:+27000000000" class="btn-call">
+        📞 &nbsp;Call Us
+      </a>
+    </div>
+    <div class="addr-grid">
+      <div class="addr-item">
+        <div class="alabel">Location</div>
+        <div class="avalue">Namakgale, Zone B</div>
+      </div>
+      <div class="addr-item">
+        <div class="alabel">Municipality</div>
+        <div class="avalue">Ba-Phalaborwa, Limpopo</div>
+      </div>
+      <div class="addr-item">
+        <div class="alabel">Hours</div>
+        <div class="avalue">Mon – Sat · 8am – 6pm</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Qokhu Mal Pty Ltd</div>
+  <p>Namakgale's Community Hub<br>
+    Internet Café &nbsp;·&nbsp; Hair Salon &nbsp;·&nbsp; Restaurant &nbsp;·&nbsp; Business Services<br>
+    Namakgale · Ba-Phalaborwa · Limpopo · 1391</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
